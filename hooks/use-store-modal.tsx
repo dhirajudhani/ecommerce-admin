@@ -8,6 +8,7 @@ interface useStoreModalStore {
 
 
 export const useStoreModal = create<useStoreModalStore>((set) => ({
+    // add a default values of a store
     isOpen : false,
     onOpen : () => set({isOpen : true}),
     onClose: () => set({isOpen : false})  
