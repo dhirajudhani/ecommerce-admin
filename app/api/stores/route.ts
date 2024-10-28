@@ -6,7 +6,7 @@ export async function POST(
     req: Request
 ) {
     try {
-        const { userId } = auth();
+        const { userId } = auth(); //using clerk for authenticating before post route
         const body = await req.json();
 
         const {name} = body;
