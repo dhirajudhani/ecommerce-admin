@@ -1,4 +1,6 @@
 "use client";
+import { AlertModal } from "@/components/modals/alert-modal";
+import { ApiAlert } from "@/components/ui/api-alert";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -55,8 +57,24 @@ export const SettingForm: React.FC<SettingFormProps> = ({ initialData }) => {
     }
   };
 
+  const onDelete = async () => {
+    try {
+      setLoading(true);
+      await axios.delete(`/api/stores/${params.storeId}`);
+      router.refresh();
+      router.push("/");
+      toast.success("Store deleted.")
+    } catch (error) {
+      toast.error("Make sure you have removed all products and categories first.")
+    }finally {
+      setLoading(false);
+      setOpen(false)
+    }
+  }
+
   return (
     <>
+      <AlertModal isOpen={open} onClose={() => setOpen(false)} onConfirm={onDelete} loading={loading}/>
       <div className="flex items-center justify-between">
         <Heading title="Setting" description="Manage store preference" />
         <Button disabled={loading} variant="destructive" size="sm" onClick={() => setOpen(true)}>
@@ -87,6 +105,8 @@ export const SettingForm: React.FC<SettingFormProps> = ({ initialData }) => {
           <Button disabled={loading} className="ml-auto"  type="submit">Save changes</Button>
         </form>
       </Form>
+      <Separator/>
+      <ApiAlert title="NEXT_PUBLIC_API_URL" description="https://admin-rahul.vercel.app/api/db1cf762-1576-4928-82ce-8d9e02d49cdf" variant="public" />
     </>
   );
 };
