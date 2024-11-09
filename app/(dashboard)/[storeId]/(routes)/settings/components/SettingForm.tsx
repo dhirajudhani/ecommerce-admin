@@ -106,7 +106,7 @@ export const SettingForm: React.FC<SettingFormProps> = ({ initialData }) => {
         </form>
       </Form>
       <Separator/>
-      <ApiAlert title="NEXT_PUBLIC_API_URL" description="https://admin-rahul.vercel.app/api/db1cf762-1576-4928-82ce-8d9e02d49cdf" variant="public" />
+      <ApiAlert title="NEXT_PUBLIC_API_URL" description={`${origin}/api/${params.storeId}`} variant="public" />
     </>
   );
 };
