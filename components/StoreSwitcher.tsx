@@ -6,7 +6,7 @@ import { useStoreModal } from "@/hooks/use-store-modal"
 import { useParams, useRouter } from "next/navigation"
 import { useState } from "react"
 import { Button } from "./ui/button"
-import { Check, ChevronsUpDown, PlusCircle, SortAsc, Store as StoreIcon } from "lucide-react"
+import { Check, ChevronsUpDown, PlusCircle, Store as StoreIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from "./ui/command"
 
