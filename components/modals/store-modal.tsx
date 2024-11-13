@@ -42,7 +42,6 @@ export const StoreModal = () => {
     } finally{
       setLoading(false)
     }
-    // console.log(values);
   };
 
   return (
